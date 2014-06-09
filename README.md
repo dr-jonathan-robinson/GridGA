@@ -11,7 +11,10 @@ GridGA is useful for the case where your objective function is computationally i
 
 HTCondor can scale from a single machine to cluster of a virtually unlimited number of machines. You can also run more than one GridGA process at the same time.
 
+GridGA is the genetic algorithm used in the DeepThought (http://www.deep-thought.co) application providing machine learning to trading systems.
+
 ## Requirements
 To build from source, you'll need the boost libraries (http://www.boost.org). ZeroMQ libraries are included in the libs dir for Windows. For Linux you'll need to ensure ZeroMQ is installed.
 
 ## Example Usage
+<TODO>
