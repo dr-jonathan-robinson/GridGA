@@ -216,8 +216,8 @@ namespace GridGALib
     template <typename T>
     GenomeParameterPtr GetGenomeParameterCopy(GenomeParameterPtr genomeToCopy)
     {
-        T& genomeParameterContinuous(*dynamic_cast<T*>(genomeToCopy.get()));
-        GenomeParameterPtr genomeCopy(boost::make_shared<T>(genomeParameterContinuous));
+        T& genomeParameterOriginal(*dynamic_cast<T*>(genomeToCopy.get()));
+        GenomeParameterPtr genomeCopy(boost::make_shared<T>(genomeParameterOriginal));
         return genomeCopy;
     }
 
