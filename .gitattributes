@@ -1,0 +1,9 @@
+* text eol=lf
+*.db binary
+*.png binary
+*.jpg binary
+*.rar binary
+*.zip binary
+*.docx binary
+*.pdf binary
+*.lib binary
