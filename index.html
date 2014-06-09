@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="GridGA : Genetic algorithm designed to wrap an existing executable or script, and run on a Condor compute cluster." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>GridGA</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/J-Robinson/GridGA">View on GitHub</a>
+
+          <h1 id="project_title">GridGA</h1>
+          <h2 id="project_tagline">Genetic algorithm designed to wrap an existing executable or script, and run on a Condor compute cluster.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/J-Robinson/GridGA/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/J-Robinson/GridGA/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="gridga" class="anchor" href="#gridga"><span class="octicon octicon-link"></span></a>GridGA</h1>
+
+<p>Genetic algorithm designed to wrap an existing executable or script, and run on an HTCondor (previously named Condor) compute cluster. HTCondor can be downloaded from <a href="http://research.cs.wisc.edu/htcondor">http://research.cs.wisc.edu/htcondor</a>.</p>
+
+<p>GridGA is designed to 'wrap' around an existing executable or script. The requirement is that the executable is able to receive commandline arguments. Work is in progress to generate a config file if your executable requires this rather than a command line.</p>
+
+<p>You specify the parameters in GridGA's config file, and these are then passed to your executable which is run in parallel with different combinations of parameters. Your executable is the 'objective function' which the GA uses to optimise the parameters.</p>
+
+<p>GridGA is useful for the case where your objective function is computationally intensive (e.g. a backtest in a trading strategy) so the optimisation process benefits from running each test of the parameters in a seperate process in parallel running on a distributed cluster.</p>
+
+<p>HTCondor can scale from a single machine to cluster of a virtually unlimited number of machines. You can also run more than one GridGA process at the same time.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>To build from source, you'll need the boost libraries (<a href="http://www.boost.org">http://www.boost.org</a>). ZeroMQ libraries are included in the libs dir for Windows. For Linux you'll need to ensure ZeroMQ is installed.</p>
+
+<h2>
+<a name="example-usage" class="anchor" href="#example-usage"><span class="octicon octicon-link"></span></a>Example Usage</h2>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">GridGA maintained by <a href="https://github.com/J-Robinson">J-Robinson</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
