@@ -6,4 +6,4 @@ To run this example from the commandline:
 
     run_ga lib_svm_param_search
 
-where `lib_svm_param_search` is the directory containing the files listed here (i.e change to one level above this directory and pass the dir name to run_ra).
+where `lib_svm_param_search` is the directory containing the files listed here (i.e change to one level above this directory and pass the dir name to `run_ra`).
