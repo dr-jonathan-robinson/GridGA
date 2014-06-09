@@ -7,3 +7,4 @@
 *.docx binary
 *.pdf binary
 *.lib binary
+*.exe binary
