@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <htcondor>
+    <ga-server>tcp://slartibartfast</ga-server>
+    <ga-server-port>55566</ga-server-port>
+    <timeout-minutes>360</timeout-minutes>
+  </htcondor>
+  <genetic-algo>
+    <execution-type>htcondor</execution-type>
+    <population-size>8</population-size>
+    <mutation-probability>10</mutation-probability>
+    <num-breeders-percent>30</num-breeders-percent>
+    <min-num-breeders>30</min-num-breeders>
+    <num-new-random-genomes>2</num-new-random-genomes>
+    <num-generations>20</num-generations>
+    <executable>svm-train.exe</executable>
+    <extract-obj>python parse_libsvm_output.py</extract-obj>
+    <arguments>-s 0 -t 2 -v 5 %GA% h4-features.training.data</arguments>
+    <param-prefix>-</param-prefix>
+    <value-prefix> </value-prefix>
+    <required-file>h4-features.training.data</required-file>
+    <required-file>svm-train.exe</required-file>
+    <required-file>parse_libsvm_output.py</required-file>
+    <parameter id="c" type="exp-2" low="0" high="15" step="1" />
+    <parameter id="g"  type="exp-2" low="-8" high="1" step="1" /> 
+ <!--   <parameter id="take-profit" type="integer" low="0" high="100" step="10" /> 
+    <parameter id="stop-loss" type="integer" low="0" high="100" step="10" /> 
+    <parameter id="pip-target" type="integer" low="10" high="40" step="5" />
+    <parameter id="average-close-num" type="integer" low="10" high="80" step="10" />
+    <parameter id="num-ma" type="integer" low="0" high="50" step="10" /> -->
+  </genetic-algo>
+</config>
