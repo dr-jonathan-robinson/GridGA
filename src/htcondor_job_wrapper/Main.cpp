@@ -193,6 +193,6 @@ int main(int argc, char* argv[])
 
     TransmitToGAServer(sendXML.str(), server);
 
-	return 0;
+    return 0;
 }
 

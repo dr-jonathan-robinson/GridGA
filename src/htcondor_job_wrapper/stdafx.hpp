@@ -14,11 +14,12 @@
 #include <map>
 #include <stdio.h>
 #include <string>
-#include <tchar.h>
 
 
 #ifndef _WIN32
 #include <pwd.h>
+#else
+#include <tchar.h>
 #endif
 
 #include "../run_ga/zmq.hpp"

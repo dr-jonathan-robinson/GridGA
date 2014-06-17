@@ -8,8 +8,6 @@ namespace DeepThoughtLib
 
         inline std::string GetExePath() //char* argv0)
         {
-            //#ifdef _WIN64
-            //define something for Windows (64-bit)
 #ifdef _WIN32
 #include <Windows.h>
             char buffer[MAX_PATH];//always use MAX_PATH for filepaths
@@ -28,14 +26,14 @@ namespace DeepThoughtLib
             //Without file name
             return  fullPath.parent_path().string();
 #elif __APPLE__
-
-            char path[1024];
-            uint32_t size = sizeof(path);
-            if (_NSGetExecutablePath(path, &size) == 0)
-                printf("executable path is %s\n", path);
-            else
-                printf("buffer too small; need size %u\n", size);
-
+//#include <mach-o/dyld.h>
+//            char path[1024];
+//            uint32_t size = sizeof(path);
+//            if (_NSGetExecutablePath(path, &size) == 0)
+//                printf("executable path is %s\n", path);
+//            else
+//                printf("buffer too small; need size %u\n", size);
+return "TODO";
 #elif __linux
 #include <limits.h>
             char exepath[PATH_MAX] = {0};

@@ -50,8 +50,12 @@ ELSE()
         -msse2
         #-mfpmath=sse
         #-fprofile-generate/use
-        -lrt        
-        
+
+#IF(LINUX)
+#
+#        -lrt        
+#        
+#ENDIF()
         # the following optimise multi-threaded bits
         #-fgraphite-identity
         #-floop-interchange

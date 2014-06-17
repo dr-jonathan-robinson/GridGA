@@ -374,7 +374,7 @@ namespace GridGALib
                 //StoreState();
                 if (mStoreState)
                 {
-                    mStoreState;
+                    mStoreState();
                 }
 
                 receivedCount++;

@@ -14,10 +14,11 @@
 #include <map>
 #include <stdio.h>
 #include <string>
+
+
+#ifdef _WIN32
 #include <tchar.h>
-
-
-#ifndef _WIN32
+#else
 #include <pwd.h>
 #endif
 

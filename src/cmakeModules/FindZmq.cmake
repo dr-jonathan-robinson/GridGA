@@ -17,8 +17,9 @@ IF(ZMQ_ROOT STREQUAL "")
 	MESSAGE(STATUS "ERROR:: ZMQ_ROOT environment variable does not appear to be set.")
 ENDIF()
 
+message(STATUS "FindZmq ZMQ_ROOT = ${ZMQ_ROOT}")
+
 if (WIN32)
-    message(STATUS "FindZmq INFO:  ${ZMQ_ROOT}")
     set(ADDITIONAL_ZMQ_INCLUDE_PATHS
         ${ZMQ_ROOT}/include)
     set(ADDITIONAL_ZMQ_LIBRARY_PATHS
@@ -55,3 +56,7 @@ else()
 	MESSAGE(STATUS "ERROR:: Could not find ZeroMQ. Did you remember to set the ZMT_ROOT environment varaible?")
 endif()
 mark_as_advanced(ZMQ_LIBRARY_DIR)
+
+
+message(STATUS "FindZmq ZMQ_LIBRARY_DIR = ${ZMQ_LIBRARY_DIR}")
+message(STATUS "FindZmq ZMQ_LIBRARY = ${ZMQ_LIBRARY}")
