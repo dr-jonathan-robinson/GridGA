@@ -9,16 +9,8 @@ namespace GridGALib
     Genome::Genome(void)
     :
         mGenomeID(++GenomeID),
-        //mPnLPips(0),
-        //mNumTrades(0),
-        //mMedianTrade(0),
-        //mMaxDrawDown(0),
-       // mAccuracy(0),
         mComplete(false),
-        //mSharpe(0),
-        //mMSE(0.0),
         mObjective(0.0)
-        //mObjectiveFunction(objectiveFunction)
     {
     }
 
@@ -54,14 +46,7 @@ namespace GridGALib
         }
 
         mObjective = pt.get("objective", 0.0);
-        //mPnLPips = pt.get("num-pips", 0.0);
-        //mNumTrades = pt.get("num-trades", 0);
-        //mMedianTrade = pt.get("median-trade", 0.0);
-        //mMaxDrawDown = pt.get("max-draw-down", 0.0);
-        //mAccuracy = pt.get("accuracy", 0.0);
         mComplete = CommonLib::GetOptionalBoolParameter("complete", pt, false);
-        //mSharpe = pt.get("sharpe", 0.0);
-        //mMSE = pt.get("mse", 0.0);
         mComputeHost = pt.get("compute-host", "undefined");
 
         if (mGenomeID >= GenomeID)
@@ -72,25 +57,8 @@ namespace GridGALib
 
     //______________________________________________________________________________________________________________
 
- //   std::string Genome::GetConfigFileName(std::string subDir)
- //   {
- //       std::ostringstream s;
- //       s << "config." << mGenomeID << ".";
- //       return s.str();
- //   }
-
-    //______________________________________________________________________________________________________________
-
     void Genome::Update(const boost::property_tree::ptree& pt)
     {
-        // update the genome with the results of a backtest
-        //mPnLPips = pt.get("results.num-pips", 0.0);
-        //mNumTrades = pt.get("results.num-trades", 0);
-        //mMedianTrade = pt.get("results.median-trade", 0.0);
-        //mMaxDrawDown = pt.get("results.max-draw-down", 0.0);
-        //mAccuracy = pt.get("results.accuracy", 0.0);
-        //mSharpe = pt.get("results.sharpe", 0.0);
-        //mMSE = pt.get("results.mse", 0.0);
         mObjective = pt.get("results.objective", 0.0);
         mComputeHost = pt.get("results.compute-host", "undefined");
         mComplete = true;
@@ -112,16 +80,6 @@ namespace GridGALib
 
         genomeTree.put("objective", mObjective);
         genomeTree.put("complete", mComplete ? "True" : "False");
-
-        //genomeTree.put("num-pips", mPnLPips);
-        //genomeTree.put("num-trades", mNumTrades);
-        //genomeTree.put("median-trade", mMedianTrade);
-        //genomeTree.put("max-draw-down", mMaxDrawDown);
-        //genomeTree.put("accuracy", mAccuracy);
-        //
-        //genomeTree.put("sharpe", mSharpe);
-        //genomeTree.put("mse", mMSE);
-        //genomeTree.put("compute-host", mComputeHost);
     }
 
     //______________________________________________________________________________________________________________
@@ -202,8 +160,6 @@ namespace GridGALib
     std::string Genome::ToString(void) const
     {
         std::ostringstream s;
-        //s << mGenomeID << ": Obj=" << GetObjective() << " Sharpe=" << mSharpe << " PnL=" << mPnLPips <<
-        //    " dd=" << mMaxDrawDown << " num=" << mNumTrades << " " << "%=" << mAccuracy << " Compute host=" << mComputeHost << " ";
 
         s << mGenomeID << ": Obj=" << GetObjective() << " Compute host=" << mComputeHost << " ";
 

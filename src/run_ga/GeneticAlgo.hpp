@@ -20,7 +20,6 @@ namespace GridGALib
 
         GAParameterMapPtr GetRandomGAParameters();
 
-        //void WaitForResults(std::deque<GenomePtr>& genomesToTest); 
         static std::string GetExampleConfig(void);
     private:
         GenomeList mGenomeCache;
@@ -40,14 +39,10 @@ namespace GridGALib
         std::size_t mPrintBestNum;
         bool mUsingRecordedSignals;
         std::string mCacheFile;
-        //ObjectiveFunction mObjectiveFunction;
         CrossFunc mCross;
-        //std::string mExecutable;
         GetGenomeConfigFunc mGetGenomeConfig;
-        //std::string mConfigXMLTemplateFileName;
         boost::scoped_ptr<HTCondor> mHTCondor;
 
-        //std::string GetConfigForGA(const std::string& configTemplateFileName, const GAParameterMapPtr parameters, boost::int32_t genomeID, const std::string& dir);
         std::string GetConfigForGA(const GenomePtr genome, const std::string& dir);
 
         void ParseConfigBlocks(boost::property_tree::ptree& pt, const GAParameterMapPtr parameterMap);
@@ -58,13 +53,9 @@ namespace GridGALib
         bool AddGenomeToPopulation(GenomeList genomesToTest, GenomePtr genome);
         void RemoveIncomleteGenomes(void);
         GenomeList NextGeneration(void);
-        //std::string WriteSubmitFile(const std::deque<GenomePtr>& genomePopulation);
-        //std::string GetPythonFiles(void);
-        //void SubmitToCluster(const std::string& submitFileName);
         void SendString(void* socket, const std::string& sendString) const; 
         void StoreState(void) const;
         bool RestoreState(void);   
-        //boost::optional<GenomePtr> AddCompleteGenomeToCache(std::deque<GenomePtr>& genomesToTest, const boost::property_tree::ptree& pt);
         void SortPopulation();     
     };
 }
