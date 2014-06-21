@@ -120,7 +120,7 @@ namespace GridGALib
     bool Genome::Mutate(std::size_t mutationProbability)
     {
         // determine if this genome will be mutated
-        if (rand() % mutationProbability != 0)
+        if (rand() % static_cast<boost::int32_t>(std::floor(100.0/mutationProbability)) != 0)
         {
             return false;
         }
