@@ -17,4 +17,5 @@ GridGA is the genetic algorithm used in the DeepThought (http://www.deep-thought
 To build from source, you'll need the boost libraries (http://www.boost.org). ZeroMQ libraries are included in the libs dir for Windows. For Linux you'll need to ensure ZeroMQ is installed.
 
 ## Example Usage
+
 <TODO>
