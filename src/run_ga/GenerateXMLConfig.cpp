@@ -68,8 +68,11 @@ namespace GridGALib
         pt.put("config.genetic-algo.genome-id", genome->GetGenomeID());
 
         std::ostringstream output;  
-        boost::property_tree::xml_writer_settings<char> settings(' ', 4);
+        boost::property_tree::xml_writer_settings<typename boost::property_tree::ptree::key_type> settings(' ', 4);
         boost::property_tree::xml_parser::write_xml(output, pt, settings);
+
+        //boost::property_tree::xml_writer_settings<char> settings(' ', 4);
+        //boost::property_tree::xml_parser::write_xml(output, pt, settings);
         return output.str();
     }
 

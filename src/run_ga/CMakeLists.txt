@@ -8,18 +8,29 @@ SET (GRID_GA_SRC_FILES
     Utils.cpp
 )
 
-SET (GRID_GA_HDR_FILES 
-    FileUtils.hpp
-    GeneticAlgo.hpp 
-    GenerateXMLConfig.hpp
-    Genome.hpp
-    HTCondor.hpp
-    Log.hpp
-    Utils.hpp
-
-    # Third Party
-    Zmq.hpp
-)
+IF (APPLE)
+    SET (GRID_GA_HDR_FILES 
+        FileUtils.hpp
+        GeneticAlgo.hpp 
+        GenerateXMLConfig.hpp
+        Genome.hpp
+        HTCondor.hpp
+        Log.hpp
+        Utils.hpp
+    )
+ELSE()
+    SET (GRID_GA_HDR_FILES 
+        FileUtils.hpp
+        GeneticAlgo.hpp 
+        GenerateXMLConfig.hpp
+        Genome.hpp
+        HTCondor.hpp
+        Log.hpp
+        Utils.hpp
+        # Third Party
+        Zmq.hpp
+    )
+ENDIF()
 
 MSVC_PCH_SUPPORT("${GRID_GA_SRC_FILES}") 
 
@@ -36,9 +47,9 @@ IF (WIN32)
     IF (MINGW)
         TARGET_LINK_LIBRARIES(run_ga  ${Boost_LIBRARIES} ${ZMQ_LIBRARIES} ws2_32 gomp)
     ELSE()
-        TARGET_LINK_LIBRARIES(run_ga ${Boost_LIBRARIES} ${ZMQ_LIBRARIES} ws2_32)
+        TARGET_LINK_LIBRARIES(run_ga ${Boost_LIBRARIES} ${ZeroMQLib} ws2_32)
         ADD_DEFINITIONS(-DZMQ_STATIC)
     ENDIF()
 ELSE()
-    TARGET_LINK_LIBRARIES(run_ga ${Boost_LIBRARIES} ${ZMQ_LIBRARY} ${CMAKE_DL_LIBS})
+    TARGET_LINK_LIBRARIES(run_ga ${Boost_LIBRARIES} ${ZeroMQLib} ${CMAKE_DL_LIBS})
 ENDIF()

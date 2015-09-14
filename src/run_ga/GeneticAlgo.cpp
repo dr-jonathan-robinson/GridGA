@@ -516,7 +516,9 @@ namespace GridGALib
 
     void GeneticAlgo::StoreState(void) const
     {
-        boost::property_tree::xml_writer_settings<char> settings(' ', 4);
+    	boost::property_tree::xml_writer_settings<typename boost::property_tree::ptree::key_type> settings(' ', 4);
+
+        //boost::property_tree::xml_writer_settings<char> settings(' ', 4);
 
         boost::property_tree::ptree ptCache;
 
@@ -528,6 +530,7 @@ namespace GridGALib
             genome->SaveAsXML(genomeTree);
             ptCache.add_child("state.genome", genomeTree);
         }
+
 
         boost::property_tree::xml_parser::write_xml(mCacheFile,  ptCache, std::locale(), settings);
     }
